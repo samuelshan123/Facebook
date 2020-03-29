@@ -14,7 +14,9 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.android.volley.Cache;
 import com.android.volley.Cache.Entry;
@@ -133,4 +135,10 @@ public class MainActivity extends Activity {
         return true;
     }
 
+    public void like(View view) {
+        Toast.makeText(MainActivity.this,"liked",Toast.LENGTH_SHORT).show();
+    }
+    public void dislike(View view) {
+        Toast.makeText(MainActivity.this,"disliked",Toast.LENGTH_SHORT).show();
+    }
 }
