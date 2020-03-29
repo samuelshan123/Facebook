@@ -38,7 +38,6 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         listView = (ListView) findViewById(R.id.list);
 
         feedItems = new ArrayList<FeedItem>();
@@ -136,9 +135,9 @@ public class MainActivity extends Activity {
     }
 
     public void like(View view) {
-        Toast.makeText(MainActivity.this,"liked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this,"liked by samuel",Toast.LENGTH_SHORT).show();
     }
     public void dislike(View view) {
-        Toast.makeText(MainActivity.this,"disliked",Toast.LENGTH_SHORT).show();
+        Toast.makeText(MainActivity.this,"disliked by samuel",Toast.LENGTH_SHORT).show();
     }
 }
