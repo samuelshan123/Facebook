@@ -16,7 +16,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Cache;
 import com.android.volley.Cache.Entry;
@@ -31,13 +34,18 @@ public class MainActivity extends Activity {
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
-    private String URL_FEED = "https://api.androidhive.info/feed/feed.json";
+    private String URL_FEED = "https://api.myjson.com/bins/jpb3g";
 
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar tToolBar = (Toolbar)findViewById(R.id.toolbar);
+        TextView textView = (TextView)findViewById(R.id.toolbarTextView);
+        textView.setText("Facebook");
+
         listView = (ListView) findViewById(R.id.list);
 
         feedItems = new ArrayList<FeedItem>();
@@ -128,11 +136,7 @@ public class MainActivity extends Activity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu, menu);
-        return true;
-    }
+
 
     public void like(View view) {
         Toast.makeText(MainActivity.this,"liked by samuel",Toast.LENGTH_SHORT).show();
