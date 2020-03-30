@@ -34,7 +34,7 @@ public class MainActivity extends Activity {
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
-    private String URL_FEED = "https://api.myjson.com/bins/jpb3g";
+    private String URL_FEED = "https://myfirstprojectsamuel.000webhostapp.com/samuel.json";
 
     @SuppressLint("NewApi")
     @Override
