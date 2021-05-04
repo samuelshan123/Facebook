@@ -16,6 +16,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,8 +35,7 @@ public class MainActivity extends Activity {
     private ListView listView;
     private FeedListAdapter listAdapter;
     private List<FeedItem> feedItems;
-    private String URL_FEED = "https://myfirstprojectsamuel.000webhostapp.com/samuel.json";
-
+    private String URL_FEED = "https://api.androidhive.info/feed/feed.json";
     @SuppressLint("NewApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,16 +51,18 @@ public class MainActivity extends Activity {
         feedItems = new ArrayList<FeedItem>();
 
         listAdapter = new FeedListAdapter(this, feedItems);
+
         listView.setAdapter(listAdapter);
 
         // These two lines not needed,
         // just to get the look of facebook (changing background color & hiding the icon)
 
-
         // We first check for cached request
         Cache cache = AppController.getInstance().getRequestQueue().getCache();
         Entry entry = cache.get(URL_FEED);
         if (entry != null) {
+
+
             // fetch the data from cache
             try {
                 String data = new String(entry.data, "UTF-8");
@@ -99,10 +101,12 @@ public class MainActivity extends Activity {
 
     }
 
+
     /**
      * Parsing json reponse and passing the data to feed view list adapter
      * */
     private void parseJsonFeed(JSONObject response) {
+
         try {
             JSONArray feedArray = response.getJSONArray("feed");
 
