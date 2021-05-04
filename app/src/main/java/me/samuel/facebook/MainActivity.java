@@ -53,6 +53,7 @@ public class MainActivity extends Activity {
         listAdapter = new FeedListAdapter(this, feedItems);
 
         listView.setAdapter(listAdapter);
+        Toast.makeText(getApplicationContext(), ("Loading Data Please wait......"), Toast.LENGTH_LONG).show();
 
         // These two lines not needed,
         // just to get the look of facebook (changing background color & hiding the icon)
@@ -77,12 +78,13 @@ public class MainActivity extends Activity {
 
         } else {
             // making fresh volley request and getting json
-            JsonObjectRequest jsonReq = new JsonObjectRequest(Method.GET,
+            final JsonObjectRequest jsonReq = new JsonObjectRequest(Method.GET,
                     URL_FEED, null, new Response.Listener<JSONObject>() {
 
                 @Override
                 public void onResponse(JSONObject response) {
                     VolleyLog.d(TAG, "Response: " + response.toString());
+
                     if (response != null) {
                         parseJsonFeed(response);
                     }
